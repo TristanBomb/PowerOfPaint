@@ -1,0 +1,16 @@
+[
+{
+  "modid": "powerofpaint",
+  "name": "Power of Paint",
+  "description": "A mod that adds paints with special powers.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["TristanBomb"],
+  "credits": "The Forge and FML crew, for providing such an awesome framework!",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "powerofpaint:paintpropulsion"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}]
+  }
+}
