@@ -32,8 +32,8 @@ public class PaintRepulsion extends Paint {
 				entityIn.motionY = yvel;
 				entityIn.playSound(SoundEvents.BLOCK_SLIME_BREAK, (float) yvel * 0.80f, (float) yvel);
 				entityIn.playSound(SoundEvents.BLOCK_ANVIL_PLACE, (float) yvel * 0.05f, (float) yvel - 1);
-				entityIn.motionX *= 2.0 * yvel;
-				entityIn.motionZ *= 2.0 * yvel;
+				entityIn.motionX *= 4.0 * Math.pow(yvel,2);
+				entityIn.motionZ *= 4.0 * Math.pow(yvel,2);
 			}
 			else {
 				entityIn.playSound(SoundEvents.BLOCK_SLIME_BREAK, 0.4f, 0.0f);

@@ -9,7 +9,7 @@ public class CommonProxy {
 		ModItems.init();
 	}
 	public void init() {
-		
+
 	}	
 	public void postInit() {
 		

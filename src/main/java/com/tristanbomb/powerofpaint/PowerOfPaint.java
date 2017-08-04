@@ -1,6 +1,7 @@
 package com.tristanbomb.powerofpaint;
 
 import com.tristanbomb.powerofpaint.proxy.CommonProxy;
+import com.tristanbomb.powerofpaint.recipe.ModRecipes;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -14,7 +15,7 @@ public class PowerOfPaint {
 
 	public static final String modId = "powerofpaint";
 	public static final String name = "Power Of Paint";
-	public static final String version = "prealpha";
+	public static final String version = "@VERSION@";
 	public static final ModTab tab = new ModTab();
 	
 	@Mod.Instance(modId)
@@ -25,20 +26,21 @@ public class PowerOfPaint {
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		// Pre-init! Item and block registry goes here.
 		proxy.preInit();
-		System.out.println(name + " has entered pre-init! Item and block registry goes here.");
 	}
 	
 	@Mod.EventHandler
 	public void midInit(FMLInitializationEvent event) {
+		// Init! Recipe and oredict registry goes here.
 		proxy.init();
-		System.out.println(name + " has entered mid-init! Recipe and oredict registry goes here.");
+		ModRecipes.init();
 	}
 	
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
+		// Post-init! Cross-mod compatibility goes here.
 		proxy.postInit();
-		System.out.println(name + " has entered post-init! Cross-mod compatiblity goes here.");
 	}
 	
 
