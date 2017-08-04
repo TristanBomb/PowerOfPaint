@@ -32,6 +32,11 @@ public class Paint extends Block {
     }
 	
 	@Override
+	public boolean isReplaceable(IBlockAccess worldIn, BlockPos pos) {
+		return true;
+	}
+	
+	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return PAINT_AABB;
 	}

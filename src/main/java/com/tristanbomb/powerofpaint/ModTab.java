@@ -13,7 +13,7 @@ public class ModTab extends CreativeTabs {
 	
 	@Override
 	public Item getTabIconItem() {
-		return ModItems.paintGun;
+		return ModItems.paintgun;
 	}
 
 }

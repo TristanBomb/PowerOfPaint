@@ -9,9 +9,9 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class PaintGun extends Item {
+public class ItemPaintGun extends Item {
 			
-	public PaintGun() {
+	public ItemPaintGun() {
 		super();
 		setUnlocalizedName(PowerOfPaint.modId + ".paintgun");
 		setRegistryName("paintgun");

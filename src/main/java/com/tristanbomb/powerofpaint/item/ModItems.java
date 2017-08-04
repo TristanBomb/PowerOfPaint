@@ -4,14 +4,17 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ModItems {
-	public static PaintGun paintGun;
+	public static ItemPaintGun paintgun;
+	public static ItemPaintbomb paintbomb;
 	
 	public static void init() {
-		paintGun = new PaintGun();
+		paintgun = new ItemPaintGun();
+		paintbomb = new ItemPaintbomb();
 	}
 	
 	@SideOnly(Side.CLIENT)
     public static void initModels() {
-        paintGun.initModel();
+        paintgun.initModel();
+        paintbomb.initModel();
     }
 }
