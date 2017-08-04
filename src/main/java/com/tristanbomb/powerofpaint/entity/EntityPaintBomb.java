@@ -9,37 +9,31 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class EntityPaintbomb extends EntityThrowable
+public class EntityPaintBomb extends EntityThrowable
 {
 	int VRADIUS = 1;
 	int HRADIUS = 2;
 	
 	int meta = 0;
 	
-    public EntityPaintbomb(World worldIn)
+    public EntityPaintBomb(World worldIn)
     {
         super(worldIn);
     }
 
-    public EntityPaintbomb(World worldIn, EntityLivingBase throwerIn, int meta)
+    public EntityPaintBomb(World worldIn, EntityLivingBase throwerIn, int meta)
     {
         super(worldIn, throwerIn);
         this.meta = meta;
     }
 
-    public EntityPaintbomb(World worldIn, double x, double y, double z)
+    public EntityPaintBomb(World worldIn, double x, double y, double z)
     {
         super(worldIn, x, y, z);
-    }
-
-    public static void registerFixesPaintbomb(DataFixer fixer)
-    {
-        EntityThrowable.registerFixesThrowable(fixer, "Snowball");
     }
 
     /**
@@ -48,6 +42,8 @@ public class EntityPaintbomb extends EntityThrowable
     @SuppressWarnings("deprecation")
 	protected void onImpact(RayTraceResult result)
     {
+    	if (result.getBlockPos() == null) { return; }
+    	
         List<BlockPos> checkArray = new ArrayList<BlockPos>();
         
         for (int i = -VRADIUS; i <= VRADIUS; i++) { //Generate a list of block positions in a cylinder
@@ -69,11 +65,7 @@ public class EntityPaintbomb extends EntityThrowable
         
         for (int i = 0; i < checkArray.size(); i++) {
 			BlockPos bp = checkArray.get(i);
-        	System.out.println(world.getBlockState(bp));
-        	System.out.println(world.getBlockState(bp).getMaterial().isReplaceable());
-        	System.out.println(world.getBlockState(bp.down()).isTopSolid());
-        	
-			if (world.getBlockState(bp).getMaterial().isReplaceable() && world.getBlockState(bp.down()).isTopSolid()) {
+			if (world.getBlockState(bp).getBlock().isReplaceable(world, bp) && world.getBlockState(bp.down()).isTopSolid()) {
 				world.setBlockState(bp, state);
 			}
 		}

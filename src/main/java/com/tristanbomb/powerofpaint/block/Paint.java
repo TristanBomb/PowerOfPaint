@@ -1,5 +1,9 @@
 package com.tristanbomb.powerofpaint.block;
 
+import java.util.Random;
+
+import javax.annotation.Nullable;
+
 import com.tristanbomb.powerofpaint.PowerOfPaint;
 
 import net.minecraft.block.Block;
@@ -7,6 +11,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -21,7 +26,7 @@ public class Paint extends Block {
 	public static final SoundType PAINT_SOUND = new SoundType(1.0F, 0.5F, SoundEvents.BLOCK_SLIME_BREAK, SoundEvents.BLOCK_SAND_STEP, SoundEvents.BLOCK_SLIME_PLACE, SoundEvents.BLOCK_SLIME_HIT, SoundEvents.BLOCK_SLIME_FALL);
 	
 	public Paint() {
-		super(Material.CLAY);
+		super(Material.SNOW);
 		this.blockSoundType = PAINT_SOUND;
 		setCreativeTab(PowerOfPaint.tab);
 	}
@@ -53,5 +58,19 @@ public class Paint extends Block {
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
+    @Override @Nullable
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
+    {
+        return null;
+    }
+    @Override
+    public boolean isPassable(IBlockAccess worldIn, BlockPos pos) {
+    	return true;
+    }
+    @Override
+    public boolean canHarvestBlock(IBlockAccess world, BlockPos pos, EntityPlayer player) {
+    	return false;
+    }
+    
 	
 }

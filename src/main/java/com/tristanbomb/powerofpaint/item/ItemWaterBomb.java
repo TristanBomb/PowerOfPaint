@@ -1,14 +1,9 @@
 package com.tristanbomb.powerofpaint.item;
 
-import java.util.List;
-
-import com.tristanbomb.powerofpaint.EnumPaintTypes;
 import com.tristanbomb.powerofpaint.PowerOfPaint;
-import com.tristanbomb.powerofpaint.entity.EntityPaintbomb;
+import com.tristanbomb.powerofpaint.entity.EntityWaterBomb;
 
-import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
@@ -24,40 +19,21 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemPaintbomb extends Item
+public class ItemWaterBomb extends Item
 {
-    public ItemPaintbomb()
+    public ItemWaterBomb()
     {
     	super();
-    	this.setHasSubtypes(true);
-        this.setMaxDamage(0);
-        
-		setUnlocalizedName(PowerOfPaint.modId + ".paintbomb");
-		setRegistryName("paintbomb");
+		setUnlocalizedName(PowerOfPaint.modId + ".waterbomb");
+		setRegistryName("waterbomb");
 		
         GameRegistry.register(this);
         this.setCreativeTab(PowerOfPaint.tab);
-    }
-    
-    @Override
-    public String getUnlocalizedName(ItemStack stack)
-    {
-        int meta = stack.getMetadata();
-        return super.getUnlocalizedName() + "." + EnumPaintTypes.getByMeta(meta).getName();
-    }   
+    } 
     
 	@SideOnly(Side.CLIENT)
 	public void initModel() {
-		ModelResourceLocation[] modelList = new ModelResourceLocation[EnumPaintTypes.values().length];
-		
-		for (EnumPaintTypes enumPaintType : EnumPaintTypes.values()) {
-			modelList[enumPaintType.getMeta()] = new ModelResourceLocation(getRegistryName() + "_" + enumPaintType.getName(), "inventory");
-			ModelBakery.registerItemVariants(this, modelList[enumPaintType.getMeta()]);
-		}
-		
-		ModelLoader.setCustomMeshDefinition(this, stack -> {
-			return modelList[stack.getMetadata()];
-		});
+		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
 	}
 
     /**
@@ -74,20 +50,12 @@ public class ItemPaintbomb extends Item
 
         if (!worldIn.isRemote)
         {
-            EntityPaintbomb proj = new EntityPaintbomb(worldIn, playerIn, stackIn.getMetadata());
+            EntityWaterBomb proj = new EntityWaterBomb(worldIn, playerIn);
             proj.setHeadingFromThrower(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
             worldIn.spawnEntity(proj);
         }
 
         playerIn.addStat(StatList.getObjectUseStats(this));
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stackIn);
-    }
-    @SideOnly(Side.CLIENT)
-    public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems)
-    {
-        for (int i = 0; i < 2; ++i)
-        {
-            subItems.add(new ItemStack(itemIn, 1, i));
-        }
     }
 }
