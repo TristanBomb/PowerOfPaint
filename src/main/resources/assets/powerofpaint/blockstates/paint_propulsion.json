@@ -1,7 +1,7 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "powerofpaint:paintpropulsion"
+    "model": "powerofpaint:paint_propulsion"
   },
   "variants": {
     "normal": [{}],

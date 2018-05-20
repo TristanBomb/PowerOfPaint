@@ -1,10 +1,10 @@
-tile.powerofpaint.paintrepulsion.name=Repulsion Paint
-tile.powerofpaint.paintpropulsion.name=Propulsion Paint
+tile.powerofpaint.paint_repulsion.name=Repulsion Paint
+tile.powerofpaint.paint_propulsion.name=Propulsion Paint
 
-item.powerofpaint.paintgun.name=Paint Gun (NYI)
-item.powerofpaint.waterbomb.name=Water Bomb
-item.powerofpaint.paintbomb.name=Paint Bomb
-item.powerofpaint.paintbomb.repulsion.name=Paint Bomb (Repulsion)
-item.powerofpaint.paintbomb.propulsion.name=Paint Bomb (Propulsion)
+item.powerofpaint.paint_gun.name=Paint Gun (NYI)
+item.powerofpaint.water_bomb.name=Water Bomb
+item.powerofpaint.paint_bomb.name=Paint Bomb
+item.powerofpaint.paint+bomb.repulsion.name=Paint Bomb (Repulsion)
+item.powerofpaint.paint+bomb.propulsion.name=Paint Bomb (Propulsion)
 
 itemGroup.powerofpaint=Power of Paint

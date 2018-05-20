@@ -1,16 +1,17 @@
 [
-{
-  "modid": "powerofpaint",
-  "name": "Power of Paint",
-  "description": "A mod that adds paints with special powers.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["TristanBomb"],
-  "credits": "The Forge and FML crew, for providing such an awesome framework; McJty, for quality tutorials; the MCMD discord server, for their help and support.",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-}
+	{
+	  "modid": "powerofpaint",
+	  "name": "Power of Paint",
+	  "description": "A mod that adds paints with special powers.",
+	  "version": "0.0.0",
+	  "mcversion": "1.12.2",
+	  "url": "https://github.com/TristanBomb/PowerOfPaint",
+	  "updateUrl": "",
+	  "authorList": ["TristanBomb"],
+	  "credits": "",
+	  "logoFile": "/assets/powerofpaint/logo.png",
+	  "screenshots": [],
+	  "dependencies": ["forgelin"],
+	  "requiredMods": ["forgelin"]
+	}
 ]
